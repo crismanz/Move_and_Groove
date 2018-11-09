@@ -1,0 +1,30 @@
+<%= form_with(model: activity, local: true) do |form| %>
+  <% if activity.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(activity.errors.count, "error") %> prohibited this activity from being saved:</h2>
+
+      <ul>
+      <% activity.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+	<%= form.label :name %>
+	<%= form.select :name, ["Swimming", "Running", "Hiking", "Walking", "Skating", "Cycling", "Mountain Biking", "Snowboarding", "Downhill Skiing", "Eliptical", "Strength Training", "Circuit Training", "Core Strength", "Arc Trainer", "Rowing", "Skating", "Nordic Walking", "XC Skiing", "Wheelchair"] %>
+	|
+	<%= form.label :date %>
+	<%= form.date_field :date %>
+	|
+	<%= form.label :duration %>
+	<%= form.text_field :duration %>
+	|
+	<%= form.label :note %>
+	<%= form.text_field :note %>
+
+	<%= form.submit %>
+  </div>
+  
+<% end %>
