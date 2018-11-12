@@ -1,6 +1,17 @@
-<p id="notice"><%= notice %></p>
+<style>
+  table { border-collapse: collapse;
+    width: 100%;
+    display: inline-block;
+  }
+  td, th { border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
 
-
+</style>
 <h1>Activities</h1>
 
 <table>
@@ -15,14 +26,14 @@
 
   <tbody>
     <% @activities.each do |activity| %>
-      <tr>
-        <td><%= activity.name %></td>
-        <td><%= activity.user.email %></td>
-        <td><%= activity.date %></td>
-        <td><%= link_to 'Show', activity %></td>
-        <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
-        <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <tr>
+      <td><%= activity.name %></td>
+      <td><%= activity.user.email %></td>
+      <td><%= activity.date %></td>
+      <td><%= link_to 'Show', activity %></td>
+      <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
+      <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
     <% end %>
   </tbody>
 </table>
