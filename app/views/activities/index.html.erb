@@ -31,13 +31,16 @@
       <td><%= activity.user.email %></td>
       <td><%= activity.date %></td>
       <td><%= link_to 'Show', activity %></td>
-      <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
-      <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% if activity.user == current_user %>
+        <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
+        <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
     </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
+
 
 <%= link_to 'New Activity', new_activity_path %>
